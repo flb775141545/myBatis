@@ -10,12 +10,14 @@ import org.mybatis.generator.internal.DefaultShellCallback;
 
 /**
  * description:
- * @author xurong
- * time : 2014-1-22 上午9:51:29
+ * @author wuxiaoping
+ * time : 2016-09-27 上午9:51:29
  */
 public class MybatisGeneratorRun {
 
     public static void main(String[] args) throws Exception {
+        System.out.println("MybatisGeneratorRun start...");
+
         List<String> warnings = new ArrayList<String>();
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(MybatisGeneratorRun.class.getClassLoader().getResourceAsStream("generatorConfig.xml"));
@@ -27,6 +29,7 @@ public class MybatisGeneratorRun {
         for (String string : warnings) {
             System.out.println(string);
         }
+
         System.out.println("MybatisGeneratorRun is ok");
     }
 
