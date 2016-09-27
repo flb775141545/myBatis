@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- <classPathEntry location="ojdbc14.jar" /> -->
+    <classPathEntry location="E:\repo\com\oracle\ojdbc14\10.2.0.2.0\ojdbc14-10.2.0.2.0.jar" />
+
+    <context id="OracleTables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+        <plugin type="com.flb.tool.plugin.TopSerializablePlugin"></plugin>
+        <plugin type="com.flb.tool.plugin.SqlMapUnMergePlugin"></plugin>
+        <!-- DAO的生成,带有分页标识 -->
+        <plugin type="com.flb.tool.plugin.PaginationAnnotaionPlugin">
+            <property name="extends" value="com.ncf.base.ibatisEx.IbatisDaoAnnotation" />
+            <property name="pageClass" value="com.ncf.base.ibatisEx.bean.Page" />
+        </plugin>
+
+        <commentGenerator type="com.flb.tool.plugin.DBCommentGenerator">
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- <commentGenerator>
+             <property name="suppressDate" value="false"/>
+             <property name="suppressAllComments" value="true"/>
+        </commentGenerator> -->
+
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@101.200.228.39:1521:vfinance" userId="FUND_TRADE" password="FUND_TRADE">
+            <property name="remarksReporting" value="true" />
+        </jdbcConnection>
+
+        <!-- POJO类生成配置 -->
+        <javaModelGenerator targetPackage="com.flb.fundTrade.model" targetProject="F:/test">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- SqlMap文件生成配置 -->
+        <sqlMapGenerator targetPackage="myBatis" targetProject="F:/test">
+        </sqlMapGenerator>
+
+        <!-- Dao生成配置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.flb.fundTrade.dao" targetProject="F:/test">
+        </javaClientGenerator>
+
+    <!--     <table tableName="APP_FUND_BUY_ORDER" domainObjectName="AppFundBuyOrder">
+            <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'660'||replace(lpad(to_char(SEQ_APP_FUND_BUY_ORDER.nextval),21),' ','0'))  from dual" />
+        </table> -->
+
+        <!-- 数据库表 -->
+        <!-- <table tableName="FT_FUND_BUY_REQUEST" domainObjectName="FundBuyRequest"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'06'||replace(lpad(to_char(SEQ_FT_FUND_BUY_REQUEST.nextval),22),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="FT_FUND_BUY_ORDER" domainObjectName="FundBuyOrder"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'01'||replace(lpad(to_char(SEQ_FT_FUND_BUY_ORDER.nextval),22),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="FT_FUND_BUY_PAY" domainObjectName="FundBuyPay"> <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'07'||replace(lpad(to_char(SEQ_FT_FUND_BUY_PAY.nextval),22),'
+            ','0')) from dual" /> </table> <table tableName="FT_FUND_PAY_REFUND" domainObjectName="FundPayRefund"> <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'08'||replace(lpad(to_char(SEQ_FT_FUND_PAY_REFUND.nextval),22),'
+            ','0')) from dual" /> </table> -->
+        <!-- <table tableName="FT_FUND_SALE_REQUEST" domainObjectName="FundSaleRequest"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'09'||replace(lpad(to_char(SEQ_FT_FUND_SALE_REQUEST.nextval),22),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="FT_FUND_SALE_ORDER" domainObjectName="FundSaleOrder"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'02'||replace(lpad(to_char(SEQ_FT_FUND_SALE_ORDER.nextval),22),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="FT_PROFIT_DETAIL" domainObjectName="ProfitDetail"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'05'||replace(lpad(to_char(SEQ_FT_PROFIT_DETAIL.nextval),22),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="FT_FUND_WITHDRAW" domainObjectName="FundWithdraw"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'10'||replace(lpad(to_char(SEQ_FT_FUND_WITHDRAW.nextval),22),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="FT_FUND_PRE_AUTH" domainObjectName="FundPreAuth"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'03'||replace(lpad(to_char(SEQ_FT_FUND_PRE_AUTH.nextval),22),' ','0')) from dual" /> -->
+        <!-- </table> <table tableName="FT_FUND_PRE_AUTH_CANCEL" domainObjectName="FundPreAuthCancel"> <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'04'||replace(lpad(to_char(SEQ_FT_FUND_PRE_AUTH_CANCEL.nextval),22),'
+            ','0')) from dual" /> </table> -->
+        <!-- <table tableName="APP_HQB_BUY_ORDER" domainObjectName="AppHqbBuyOrder"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'220'||replace(lpad(to_char(SEQ_APP_HQB_BUY_ORDER.nextval),21),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="APP_HQB_SALE_ORDER" domainObjectName="AppHqbSaleOrder"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'221'||replace(lpad(to_char(SEQ_APP_HQB_SALE_ORDER.nextval),21),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="ZC_BUY_ORDER" domainObjectName="ZcBuyOrder"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'330'||replace(lpad(to_char(SEQ_ZC_BUY_ORDER.nextval),21),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="ZC_CHOOSE_ORDER" domainObjectName="ZcChooseOrder"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'331'||replace(lpad(to_char(SEQ_ZC_CHOOSE_ORDER.nextval),21),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="FT_PROFIT_INFO" domainObjectName="ProfitInfo"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select SEQ_FT_PROFIT_INFO.nextval from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="SUBSIDY_DETAIL" domainObjectName="SubsidyDetail"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'990'||replace(lpad(to_char(SEQ_SUBSIDY_DETAIL.nextval),21),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="FT_USE_MONEY_DETAIL" domainObjectName="UseMoneyDetail"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select SEQ_FT_USE_MONEY_DETAIL.nextval from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="V_TRADE_INFO" domainObjectName="TradeInfo"> -->
+        <!-- </table> -->
+        <!-- <table tableName="REGULAR_ORDER" domainObjectName="RegularOrder"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'441'||replace(lpad(to_char(SEQ_REGULAR_ORDER.nextval),21),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="FT_CALCULATE_RESULT" domainObjectName="FtCalculateResult"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select SEQ_FT_CALCULATE_RESULT.nextval from dual" /> -->
+        <!-- </table> -->
+
+        <!-- <table tableName="APP_INSURE_HOLD" domainObjectName="InsureHold"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select SEQ_APP_INSURE_HOLD.nextval from dual" /> -->
+        <!-- </table>
+
+        <table tableName="APP_INSURE_BUY_ORDER" domainObjectName="AppInsureBuyOrder">
+            <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'551'||replace(lpad(to_char(SEQ_APP_INSURE_BUY_ORDER.nextval),21),' ','0')) from dual" />
+        </table>
+        <table tableName="APP_INSURE_SALE_ORDER" domainObjectName="AppInsureSaleOrder">
+            <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'551'||replace(lpad(to_char(SEQ_APP_INSURE_SALE_ORDER.nextval),21),' ','0')) from dual" />
+        </table>
+        -->
+        <!-- <table tableName="APP_INSURE_PROFIT" domainObjectName="AppInsureProfit"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'551'||replace(lpad(to_char(SEQ_APP_INSURE_PROFIT.nextval),21),' ','0')) from dual" /> -->
+        <!-- </table> -->
+
+        <!-- <table tableName="APP_DEPOSIT_ORDER" domainObjectName="AppDepositOrder"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'661'||replace(lpad(to_char(SEQ_APP_DEPOSIT_ORDER.nextval),21),' ','0')) from dual" /> -->
+        <!-- </table> -->
+        <!-- <table tableName="APP_DEPOSIT_PROFIT" domainObjectName="AppDepositProfit"> -->
+        <!-- <generatedKey column="ID" -->
+        <!-- sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'661'||replace(lpad(to_char(SEQ_APP_DEPOSIT_PROFIT.nextval),21),' ','0')) from dual" /> -->
+        <!-- </table> <table tableName="APP_TRANSFER_REPAYMENT" domainObjectName="TransferRepayment"> <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ATRP'||to_char(SEQ_APP_TRANSFER_REPAYMENT.nextval)
+            from dual" /> </table> <table tableName="APP_TRANSFER_APPLY" domainObjectName="TransferApply"> <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ATA'||#transferType#||to_char(SEQ_APP_TRANSFER_APPLY.nextval)
+            from dual" /> </table> <table tableName="APP_TRANSFER_ORDER" domainObjectName="TransferOrder"> <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ATO'||to_char(SEQ_APP_TRANSFER_ORDER.nextval)
+            from dual" /> </table> <table tableName="APP_PLEDGE_ASSET" domainObjectName="PledgeAsset"> <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'APAS'||to_char(SEQ_APP_PLEDGE_ASSET.nextval)
+            from dual" /> </table> <table tableName="APP_TRANSFER_ASSET" domainObjectName="TransferAsset"> <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ATAS'||to_char(SEQ_APP_TRANSFER_ASSET.nextval)
+            from dual" /> </table> <table tableName="APP_TRANSFER_ASSET_FLOW" domainObjectName="TransferAssetFlow"> <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ATASF'||to_char(SEQ_APP_TRANSFER_ASSET_FLOW.nextval)
+            from dual" /> </table> <table tableName="REMOTE_INVOKE_STATE" domainObjectName="RemoteInvokeState"> </table> <table tableName="APP_REPAYMENT_ORDER" domainObjectName="AppRepaymentOrder"> <generatedKey column="ID"
+            sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ARP'||to_char(SEQ_APP_REPAYMENT_ORDER.nextval) from dual" /> </table> <table tableName="APP_FUND_SALE_ORDER" domainObjectName="AppFundSaleOrder">
+            <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'661'||replace(lpad(to_char(SEQ_APP_FUND_SALE_ORDER.nextval),21),' ','0')) from dual" /> </table> -->
+
+        <!-- <table tableName="APP_FUND_BUY_ORDER" domainObjectName="AppFundBuyOrder"> <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'660'||replace(lpad(to_char(SEQ_APP_FUND_BUY_ORDER.nextval),21),'
+            ','0')) from dual" /> </table> <table tableName="APP_FUND_SALE_ORDER" domainObjectName="AppFundSaleOrder"> <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'661'||replace(lpad(to_char(SEQ_APP_FUND_SALE_ORDER.nextval),21),'
+            ','0')) from dual" /> </table>
+
+        <table tableName="FT_PROFIT_CANCEL_DETAIL" domainObjectName="FtProfitCancelDetail">
+            <generatedKey column="ID" sqlStatement="select SEQ_FT_PROFIT_CANCEL_DETAIL.nextval  from dual" />
+        </table>
+        <table tableName="APP_TRANSFER_APPLY" domainObjectName="TransferApply">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ATA'||#transferType#||to_char(SEQ_APP_TRANSFER_APPLY.nextval) from dual" />
+        </table>
+        <table tableName="APP_TRANSFER_ORDER" domainObjectName="TransferOrder">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ATO'||to_char(SEQ_APP_TRANSFER_ORDER.nextval) from dual" />
+        </table>
+        <table tableName="APP_PLEDGE_ASSET" domainObjectName="PledgeAsset">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'APAS'||to_char(SEQ_APP_PLEDGE_ASSET.nextval) from dual" />
+        </table>
+        <table tableName="APP_TRANSFER_ASSET" domainObjectName="TransferAsset">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ATAS'||to_char(SEQ_APP_TRANSFER_ASSET.nextval) from dual" />
+        </table>
+        <table tableName="APP_TRANSFER_ASSET_FLOW" domainObjectName="TransferAssetFlow">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ATASF'||to_char(SEQ_APP_TRANSFER_ASSET_FLOW.nextval) from dual" />
+        </table>
+        <table tableName="REMOTE_INVOKE_STATE" domainObjectName="RemoteInvokeState">
+        </table>
+        <table tableName="APP_REPAYMENT_ORDER" domainObjectName="AppRepaymentOrder">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMddhh24miss')||'ARP'||to_char(SEQ_APP_REPAYMENT_ORDER.nextval) from dual" />
+        </table>
+
+        <table tableName="APP_FUND_SALE_ORDER" domainObjectName="AppFundSaleOrder">
+            <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'661'||replace(lpad(to_char(SEQ_APP_FUND_SALE_ORDER.nextval),21),' ','0'))  from dual" />
+        </table>
+
+        <table tableName="APP_FUND_BUY_ORDER" domainObjectName="AppFundBuyOrder">
+            <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'660'||replace(lpad(to_char(SEQ_APP_FUND_BUY_ORDER.nextval),21),' ','0'))  from dual" />
+        </table>
+
+        <table tableName="APP_FUND_SALE_ORDER" domainObjectName="AppFundSaleOrder">
+            <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'661'||replace(lpad(to_char(SEQ_APP_FUND_SALE_ORDER.nextval),21),' ','0'))  from dual" />
+        </table>
+
+
+        <table tableName="FT_CARD_BALANCE" domainObjectName="FtCardBalance">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMdd')||'FCB'||replace(lpad(to_char(SEQ_FT_CARD_BALANCE.nextval), 19),' ','0') from dual" />
+        </table>
+        <table tableName="FT_CARD_CHANGE_DETAIL" domainObjectName="FtCardChangeDetail">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMdd')||'FCCD'||replace(lpad(to_char(SEQ_FT_CARD_CHANGE_DETAIL.nextval), 18),' ','0') from dual" />
+        </table>
+
+        <table tableName="FUND_FINANCE_USERINFO" domainObjectName="FundFinanceUserInfo">
+            <generatedKey column="ID" sqlStatement="select SEQ_fund_finance_userinfo.Nextval from dual" />
+        </table>
+         -->
+
+        <!-- <table tableName="FT_MEMBER_COUNT" domainObjectName="FtMemberCount">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMdd')||'MCT'||replace(lpad(to_char(SEQ_FT_MEMBER_COUNT.nextval), 19),' ','0') from dual" />
+        </table> -->
+
+
+       <!--    <table  tableName="app_auto_invest_plan"  domainObjectName="APPAutoInvestPlan">
+          <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||replace(lpad(to_char(seq_app_auto_invest_plan.nextval),24),' ','0'))  from dual" />
+        </table>
+         <table  tableName="app_auto_invest_withhold_order"  domainObjectName="APPAutoInvestWithHoldOrder">
+           <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||replace(lpad(to_char(seq_app_auto_invest_order.nextval),24),' ','0'))  from dual" />
+        </table>
+         <table  tableName="app_auto_invest_withhold_req"  domainObjectName="APPAutoInvestWithHoldReq">
+         <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||replace(lpad(seq_app_auto_invest_request.nextval),24),' ','0'))  from dual" />
+        </table>
+
+         <table  tableName="APP_AUTO_INVEST_EXECUTE_PLAN"  domainObjectName="APPAutoInvestExecutePlan">
+         <generatedKey column="ID" sqlStatement="  select to_number(to_char(sysdate,'yyyyMMdd')||replace(lpad(to_char(seq_app_auto_invest_exe_plan.nextval),24),' ','0'))  from dual" />
+        </table>  -->
+
+        <!-- <table tableName="RISK_ASSESSMENT_RESULT" domainObjectName="RiskAssessmentResult">
+            <generatedKey column="ID" sqlStatement="select SEQ_RISK_ASSESSMENT_RESULT.nextval from dual" />
+        </table>
+
+		 <table tableName="FT_BATCH_HQB_BUY_INFO" domainObjectName="FtBatchHqbBuyInfo">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMdd')||'FBI'||replace(lpad(to_char(SEQ_FT_BATCH_HQB_BUY_INFO.nextval), 18),' ','0') from dual" />
+        </table>
+
+         <table tableName="FT_BATCH_HQB_BUY_DETAIL" domainObjectName="FtBatchHqbBuyDetail">
+            <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMdd')||'FBD'||replace(lpad(to_char(SEQ_FT_CARD_CHANGE_DETAIL.nextval), 18),' ','0') from dual" />
+        </table> -->
+
+		<table tableName="APP_FUND_BUY_ORDER" domainObjectName="AppFundBuyOrder">
+            <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'660'||replace(lpad(to_char(SEQ_APP_FUND_BUY_ORDER.nextval),21),' ','0'))  from dual" />
+        </table>
+	</context>
+
+</generatorConfiguration>
