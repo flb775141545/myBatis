@@ -13,10 +13,10 @@
         <plugin type="com.flb.tool.plugin.TopSerializablePlugin"></plugin>
         <plugin type="com.flb.tool.plugin.SqlMapUnMergePlugin"></plugin>
         <!-- DAO的生成,带有分页标识 -->
-        <plugin type="com.flb.tool.plugin.PaginationAnnotaionPlugin">
+        <!--<plugin type="com.flb.tool.plugin.PaginationAnnotaionPlugin">
             <property name="extends" value="com.ncf.base.ibatisEx.IbatisDaoAnnotation" />
             <property name="pageClass" value="com.ncf.base.ibatisEx.bean.Page" />
-        </plugin>
+        </plugin>-->
 
         <commentGenerator type="com.flb.tool.plugin.DBCommentGenerator">
             <property name="suppressAllComments" value="true" />
