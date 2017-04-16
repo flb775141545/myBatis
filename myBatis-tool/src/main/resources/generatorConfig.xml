@@ -238,6 +238,7 @@
             <generatedKey column="ID" sqlStatement="select 'FT'||to_char(sysdate,'yyyyMMdd')||'FBD'||replace(lpad(to_char(SEQ_FT_CARD_CHANGE_DETAIL.nextval), 18),' ','0') from dual" />
         </table> -->
 
+		<!-- 申购订单 -->
 		<table tableName="APP_FUND_BUY_ORDER" domainObjectName="AppFundBuyOrder">
             <generatedKey column="ID" sqlStatement="select to_number(to_char(sysdate,'yyyyMMdd')||'660'||replace(lpad(to_char(SEQ_APP_FUND_BUY_ORDER.nextval),21),' ','0'))  from dual" />
         </table>
